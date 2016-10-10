@@ -23,13 +23,6 @@ module Mackarel
     instance_variable_set("@#{called}", FactoryGirl.create_list(factory, number, overrides))
   end
 
-  def fill_the_form_with(attributes)
-    attributes.each do |field_name, value|
-      field = page.find_field(field_name)
-      next if field.set(value)
-      select_on_form(field_name, value)
-    end
-  end
 
 
   alias and_i when_i

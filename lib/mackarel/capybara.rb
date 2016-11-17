@@ -1,6 +1,5 @@
 module Mackarel
   module Capybara
-
     def fill_the_form_with(attributes)
       attributes.each do |field_name, value|
         field = page.find_field(field_name)
@@ -69,7 +68,7 @@ module Mackarel
     end
 
     def src_str(src)
-      "@src='#{src}'" if src
+      "contains(@src, '#{src}')" if src
     end
   end
 end

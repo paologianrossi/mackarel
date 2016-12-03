@@ -23,8 +23,8 @@ module Mackarel
       end
     end
 
-    def submit_the_form
-      page.find("form").find(:button).click
+    def submit_the_form(selector)
+      page.find("form#{selector}").find(:button).click
     end
 
     def i_can_see(something)

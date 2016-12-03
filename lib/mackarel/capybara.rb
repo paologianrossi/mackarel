@@ -23,7 +23,7 @@ module Mackarel
       end
     end
 
-    def submit_the_form(selector)
+    def submit_the_form(selector="")
       page.find("form#{selector}").find(:button).click
     end
 

@@ -1,15 +1,13 @@
 # Mackarel
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mackarel`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Mackarel is a small, hacky extension for acceptance testing in Rails with Capybara and FactoryGirl.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mackarel'
+gem 'mackarel', group: :test
 ```
 
 And then execute:
@@ -20,22 +18,51 @@ Or install it yourself as:
 
     $ gem install mackarel
 
+In your spec/spec_helper.rb file add
+
+```ruby
+config.include Mackarel
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Mackarel allows you to write acceptance tests in Rails in a readable way without having to deal with things like Cucumber. It uses feature tests with RSpec, Factorygirl as the factory for models, and generally follows my setup.
+
+You can do things like:
+
+```ruby
+RSpec.feature "Visiting the homepage" do
+
+  scenario "'Logo' as a header" do
+    when_i { visit root_path }
+
+    # There is an image on the page, with the alt_text of "Logo"
+    i_find_an :image, with_text: "Logo"
+  end
+
+  scenario "I find a Log in button" do
+    when_i { visit root_path }
+    and_i { click_on I18n.t("devise.sign_in") }
+
+    i_am_taken_to_the new_user_session_path
+  end
+
+end
+```
+
+### TODO: Document all helpers
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+[rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mackarel. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/paologianrossi/mackarel. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

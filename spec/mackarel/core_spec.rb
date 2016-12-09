@@ -2,10 +2,12 @@ require 'mackarel'
 require 'factory_girl'
 
 Model = Struct.new(:name) { def save!; end}
-FactoryGirl.define { factory(:model) { name "foobar" } }
+FactoryGirl.define { factory(:model) { name "foobar" }}
 
-RSpec.describe Mackarel do
-  include Mackarel
+RSpec.describe Mackarel::Core do
+
+  include Mackarel::Core
+
   describe "#when_i" do
     it "runs the block" do
       expect(when_i { 1 + 1 }).to eq 2

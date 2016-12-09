@@ -3,10 +3,11 @@ require 'capybara'
 require 'capybara/dsl'
 require 'support/test_app'
 
-RSpec.describe Mackarel do
+RSpec.describe Mackarel::Capybara do
 
   include Capybara::DSL
-  include Mackarel
+  include Mackarel::Capybara
+
   Capybara.app = TestApp
 
   describe "#i_can_see" do

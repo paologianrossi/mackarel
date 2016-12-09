@@ -70,5 +70,12 @@ module Mackarel
     def src_str(src)
       "contains(@src, '#{src}')" if src
     end
+
+    alias and_i_find i_find
+    alias i_find_a i_find
+    alias i_find_an i_find
+    alias and_i_find_an i_find
+    alias and_i_find_a i_find
+
   end
 end

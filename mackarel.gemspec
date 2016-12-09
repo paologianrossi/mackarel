@@ -27,9 +27,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "nokogiri"
   spec.add_development_dependency "rack-test"
 
-  spec.add_dependency "rspec"
-  spec.add_dependency "capybara"
-  spec.add_dependency "poltergeist"
-  spec.add_dependency "factory_girl"
+  spec.add_dependency "rspec", "~> 3"
+  spec.add_dependency "capybara", "~> 2"
+  spec.add_dependency "poltergeist", "~> 1"
+  spec.add_dependency "factory_girl", "~> 4"
 
 end

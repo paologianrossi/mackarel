@@ -76,6 +76,6 @@ module Mackarel
     alias i_find_an i_find
     alias and_i_find_an i_find
     alias and_i_find_a i_find
-
+    alias and_i_can_see i_can_see
   end
 end

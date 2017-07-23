@@ -28,10 +28,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rack-test"
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "byebug"
 
   spec.add_dependency "rspec", "~> 3"
   spec.add_dependency "capybara", "~> 2"
   spec.add_dependency "poltergeist", "~> 1"
   spec.add_dependency "factory_girl", "~> 4"
+  spec.add_dependency "activesupport"
 
 end

@@ -4,23 +4,21 @@ module Mackarel
       yield
     end
 
-    def when_there_exists_a(factory, overrides={})
-      called = overrides.delete(:called) || factory
-      asset = FactoryGirl.create(factory, overrides)
+    def factory
+      Mackarel.config.factory
+    end
+
+    def when_there_exists_a(what, *args, **options)
+      called = options.delete(:called) || what.to_s.underscore.tr("/", "_")
+      asset = factory.create(what, *args, **options)
       instance_variable_set("@#{called}", asset)
       yield(asset) if block_given?
     end
 
-    def when_there_exist(number, factory, overrides={})
-      called = overrides.delete(:called)
-      asset = FactoryGirl.create_list(factory, number, overrides)
-      if called
-        instance_variable_set("@#{called}", asset)
-      else
-        instance_variable_set("@#{factory}", asset)
-        instance_variable_set("@#{factory}_list", asset)
-      end
-
+    def when_there_exist(number, what, *args, **options)
+      called = options.delete(:called) || "#{what.to_s.underscore.tr("/", "_")}_list"
+      asset = factory.create_list(what, number, *args, **options)
+      instance_variable_set("@#{called}", asset)
       yield(asset) if block_given?
     end
 

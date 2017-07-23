@@ -58,6 +58,24 @@ module Mackarel
       end
     end
 
+    def i_find_no(selector, opts={})
+      text = opts.delete(:with_text)
+      case selector
+      when String
+        expect(page).to have_selector selector, text: text
+      when :link
+        pointing_to = opts.delete(:pointing_to)
+        if pointing_to.nil?
+          expect(page).to have_link text
+        else
+          expect(page).to have_link text, href: pointing_to
+        end
+      when :image
+        src = opts.delete(:with_src)
+        expect(page).to have_xpath(image_path(src, text))
+      end
+    end
+
     def image_path(src, alt)
       "//img#{image_filters(src, alt)}"
     end

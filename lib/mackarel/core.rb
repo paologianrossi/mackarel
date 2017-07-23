@@ -6,12 +6,16 @@ module Mackarel
 
     def when_there_exists_a(factory, overrides={})
       called = overrides.delete(:called) || factory
-      instance_variable_set("@#{called}", FactoryGirl.create(factory, overrides))
+      asset = FactoryGirl.create(factory, overrides)
+      instance_variable_set("@#{called}", asset)
+      yield(asset) if block_given?
     end
 
     def when_there_exist(number, factory, overrides={})
-      called = overrides.delete(:called) || factory
-      instance_variable_set("@#{called}", FactoryGirl.create_list(factory, number, overrides))
+      called = overrides.delete(:called) || "#{factory}_list"
+      asset = FactoryGirl.create_list(factory, number, overrides)
+      instance_variable_set("@#{called}", asset)
+      yield(asset) if block_given?
     end
 
     alias and_i when_i

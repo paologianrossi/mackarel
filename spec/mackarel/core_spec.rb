@@ -39,11 +39,11 @@ RSpec.describe Mackarel::Core do
   describe "#when_there_exist" do
     it "makes a bunch of objects" do
       when_there_exist(5, :model)
-      expect(@model.count).to eq 5
+      expect(@model_list.count).to eq 5
     end
     it "handles overrides" do
       when_there_exist(2, :model, name: "foobar")
-      expect(@model.map(&:name)).to eq ["foobar", "foobar"]
+      expect(@model_list.map(&:name)).to eq ["foobar", "foobar"]
     end
     it "uses a different name if passed 'called:'" do
       when_there_exist(2, :model, called: "foos", name: "foobar")

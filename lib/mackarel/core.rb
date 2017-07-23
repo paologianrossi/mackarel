@@ -12,9 +12,15 @@ module Mackarel
     end
 
     def when_there_exist(number, factory, overrides={})
-      called = overrides.delete(:called) || "#{factory}_list"
+      called = overrides.delete(:called)
       asset = FactoryGirl.create_list(factory, number, overrides)
-      instance_variable_set("@#{called}", asset)
+      if called
+        instance_variable_set("@#{called}", asset)
+      else
+        instance_variable_set("@#{factory}", asset)
+        instance_variable_set("@#{factory}_list", asset)
+      end
+
       yield(asset) if block_given?
     end
 

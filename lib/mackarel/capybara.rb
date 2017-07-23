@@ -27,6 +27,11 @@ module Mackarel
       page.find("form#{selector}").find(:button).click
     end
 
+    def i_am_taken_to(path)
+      expect(current_path).to eq path
+    end
+
+
     def i_can_see(something)
       expect(page).to have_content(something)
     end
@@ -71,11 +76,16 @@ module Mackarel
       "contains(@src, '#{src}')" if src
     end
 
+    alias i_am_taken_to_the i_am_taken_to
+    alias and_i_am_taken_to i_am_taken_to
+    alias and_i_am_taken_to_the i_am_taken_to
+
     alias and_i_find i_find
     alias i_find_a i_find
     alias i_find_an i_find
     alias and_i_find_an i_find
     alias and_i_find_a i_find
+
     alias and_i_can_see i_can_see
   end
 end

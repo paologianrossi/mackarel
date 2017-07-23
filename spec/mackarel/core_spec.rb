@@ -14,16 +14,6 @@ RSpec.describe Mackarel::Core do
     end
   end
 
-  describe "#i_am_taken_to" do
-    def current_path
-      "/path/to/check"
-    end
-
-    it "checks the current path" do
-      i_am_taken_to "/path/to/check"
-    end
-  end
-
   describe "#when_there_exists_a" do
     it "makes an instance object" do
       when_there_exists_a :model

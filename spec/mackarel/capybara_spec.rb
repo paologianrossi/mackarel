@@ -17,6 +17,15 @@ RSpec.describe Mackarel::Capybara do
    end
   end
 
+  describe "#i_am_taken_to" do
+    def current_path
+      "/path/to/check"
+    end
+
+    it "checks the current path" do
+      i_am_taken_to "/path/to/check"
+    end
+  end
   describe "#i_find" do
     before { visit("/") }
     it "can find tags" do

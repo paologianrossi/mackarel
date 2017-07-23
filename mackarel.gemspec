@@ -26,6 +26,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rack"
   spec.add_development_dependency "nokogiri"
   spec.add_development_dependency "rack-test"
+  spec.add_development_dependency "guard"
+  spec.add_development_dependency "guard-rspec"
 
   spec.add_dependency "rspec", "~> 3"
   spec.add_dependency "capybara", "~> 2"

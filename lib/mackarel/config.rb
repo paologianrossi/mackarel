@@ -1,5 +1,3 @@
-require "mackarel/basic_factory"
-
 module Mackarel::Config
   extend self
 

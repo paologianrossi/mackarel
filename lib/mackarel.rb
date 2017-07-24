@@ -1,8 +1,10 @@
 require "mackarel/version"
 require "mackarel/config"
+
 require "mackarel/core"
 require "mackarel/capybara"
-require "mackarel/factory_girl"
+
+require "mackarel/factories"
 
 module Mackarel
   include Core

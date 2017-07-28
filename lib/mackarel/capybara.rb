@@ -3,7 +3,7 @@ require "mackarel/capybara/form"
 module Mackarel
   module Capybara
     def i_am_taken_to(path)
-      expect(current_path).to eq path
+      expect(page).to have_current_path(path)
     end
 
     def i_can_see(something)

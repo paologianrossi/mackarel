@@ -6,7 +6,6 @@ module Mackarel
       expect(current_path).to eq path
     end
 
-
     def i_can_see(something)
       expect(page).to have_content(something)
     end

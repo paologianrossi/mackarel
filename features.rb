@@ -10,13 +10,13 @@ module FeatureLang
 
   def when_there_exists_a(factory, overrides={})
     called = overrides.delete(:called) || factory
-    instance_variable_set("@#{called}", FactoryGirl.create(factory, overrides))
+    instance_variable_set("@#{called}", FactoryBot.create(factory, overrides))
   end
 
   def when_there_exist(number, factory, overrides=nil)
     instance_variable_set("@#{factory}", [])
     number.times do
-      instance = FactoryGirl.create(factory, overrides)
+      instance = FactoryBot.create(factory, overrides)
       instance_variable_get("@#{factory}") << instance
     end
   end

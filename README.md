@@ -1,6 +1,6 @@
 # Mackarel
 
-Mackarel is a small, hacky extension for acceptance testing in Rails with Capybara and FactoryGirl.
+Mackarel is a small, hacky extension for acceptance testing in Rails with Capybara and FactoryBot.
 
 ## Installation
 
@@ -24,17 +24,17 @@ In your `spec/spec_helper.rb` or `spec/rails_helper.rb` file add:
 RSpec.configure { |c| config.include Mackarel }
 ```
 
-If you want to use [FactoryGirl](https://github.com/thoughtbot/factory_girl) as the backend for creating assets, add also:
+If you want to use [FactoryBot](https://github.com/thoughtbot/factory_bot) as the backend for creating assets, add also:
 
 ```ruby
-Mackarel.config { |c| c.factory = FactoryGirl }
+Mackarel.config { |c| c.factory = FactoryBot }
 ```
 
 ## Usage
 
 Mackarel allows you to write acceptance tests in Rails in a readable way without having to deal with things like Cucumber.
 
-It uses feature tests with RSpec. It can use Factorygirl as the factory for models, and Capybara for website testing.
+It uses feature tests with RSpec. It can use FactoryBot as the factory for models, and Capybara for website testing.
 
 You can do things like:
 
@@ -97,8 +97,8 @@ and_there_exists_an(what, *args, **kwargs, &blk)
 ```
 
 These generate objects. By default, they use `Mackarel::BasicFactory`
-to do so, but you can change that to use Factorygirl with
-`Mackarel.config.factory = Mackarel::FactoryGirl`, or create your own. See later in this README to see how.
+to do so, but you can change that to use FactoryBot with
+`Mackarel.config.factory = Mackarel::FactoryBot`, or create your own. See later in this README to see how.
 
 
 Create and friends figure out what you want to call the created

@@ -1,13 +1,13 @@
 require 'mackarel'
-require 'factory_girl'
+require 'factory_bot'
 
 Model = Struct.new(:name) { def save!; end}
-FactoryGirl.define { factory(:model) { name "foobar" }}
+FactoryBot.define { factory(:model) { name "foobar" }}
 
-RSpec.describe Mackarel::FactoryGirl do
+RSpec.describe Mackarel::FactoryBot do
 
   include Mackarel::Core
-  before(:all) { Mackarel.config { |c| c.factory = FactoryGirl } }
+  before(:all) { Mackarel.config { |c| c.factory = FactoryBot } }
 
   describe "#when_there_exists_a" do
     it "makes an instance object" do

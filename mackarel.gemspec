@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["paolino.gianrossi@gmail.com"]
 
   spec.summary       = %q{Simple feature testing for Rails with Capybara and Rspec}
-  spec.description   = %q{Mackarel allows you to write acceptance tests in Rails in a readable way without having to deal with things like Cucumber. It uses feature tests with RSpec, Factorygirl as the factory for models, and generally follows my setup.}
+  spec.description   = %q{Mackarel allows you to write acceptance tests in Rails in a readable way without having to deal with things like Cucumber. It uses feature tests with RSpec, FactoryBot as the factory for models, and generally follows my setup.}
   spec.homepage      = "https://github.com/paologianrossi/mackarel"
   spec.license       = "MIT"
 
@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rspec", "~> 3"
   spec.add_dependency "capybara", "~> 2"
   spec.add_dependency "poltergeist", "~> 1"
-  spec.add_dependency "factory_girl", "~> 4"
-  spec.add_dependency "activesupport"
+  spec.add_dependency "factory_bot", "~> 4"
+  spec.add_dependency "activesupport", "~> 5"
 
 end
